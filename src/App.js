@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Header from './components/Header';
 import Tasks from './components/Tasks';
+import AddTask from './components/AddTask';
 
 function App() {
 
@@ -23,6 +24,13 @@ function App() {
     reminder: true
   }])
 
+  const addTask = (task) => {
+    console.log(task);
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = { id, ...task};
+    setTaskList([...taskList, newTask]);
+  }
+
   const deleteTask = (id) => {
     console.log('delete', id);
     setTaskList(taskList.filter((task)=> task.id != id));
@@ -35,11 +43,12 @@ function App() {
         task.id === id ? {...task, reminder: !task.reminder} : task
       )
     );
-  }
+  };
 
   return (
     <div className="container">
       <Header />
+      <AddTask onAdd={addTask}/>
       {
         taskList.length > 0 ?
         <Tasks taskList={taskList} onDelete={deleteTask} onToggle={togglereminder}/>
