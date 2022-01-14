@@ -23,10 +23,19 @@ function App() {
     remainder: true
   }])
 
+  const deleteTask = (id) => {
+    console.log('delete', id);
+    setTaskList(taskList.filter((task)=> task.id != id));
+  };
+
   return (
     <div className="container">
       <Header />
-      <Tasks taskList={taskList} />
+      {
+        taskList.length > 0 ?
+        <Tasks taskList={taskList} onDelete={deleteTask}/>
+        : "No Task left"
+      }
     </div>
   );
 }
