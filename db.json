@@ -4,13 +4,13 @@
       "id": "1",
       "text": "Collect Food",
       "day": "Feb 5th at 2:30pm",
-      "reminder": false
+      "reminder": true
     },
     {
       "id": "3",
       "text": "Collect Tickets",
       "day": "Feb 7th at 4:30pm",
-      "reminder": true
+      "reminder": false
     },
     {
       "text": "complete assg",
