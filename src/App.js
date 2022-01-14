@@ -24,16 +24,24 @@ function App() {
   }
 
 
-  const addTask = (task) => {
-    console.log(task);
-    const id = Math.floor(Math.random() * 10000) + 1;
-    const newTask = { id, ...task};
-    setTaskList([...taskList, newTask]);
+  const addTask = async (task) => {
+    const res = await fetch("http://localhost:5000/tasks", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body : JSON.stringify(task)
+    })
+
+    const data = await res.json();
+    // console.log(task);
+    // const id = Math.floor(Math.random() * 10000) + 1;
+    // const newTask = { id, ...task};
+    setTaskList([...taskList, data]);
   }
 
   const deleteTask = async (id) => {
     await fetch(`http://localhost:5000/tasks/${id}`, {method: "DELETE"});
-
     console.log('delete', id);
     setTaskList(taskList.filter((task)=> task.id != id));
   };
