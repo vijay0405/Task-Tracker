@@ -11,12 +11,6 @@
       "text": "Collect Tickets",
       "day": "Feb 7th at 4:30pm",
       "reminder": false
-    },
-    {
-      "text": "complete assg",
-      "day": "12:00am",
-      "reminder": true,
-      "id": "VsRsaUp"
     }
   ]
 }
