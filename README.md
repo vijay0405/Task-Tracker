@@ -1,5 +1,6 @@
 # Task Tracker using react
 
+![alt text](https://github.com/vijay0405/Task-Tracker/blob/main/Screenshot_20220114_232708.png)
 
 ### Available Scripts
 
