@@ -8,19 +8,19 @@ function App() {
     id: "1",
     text: "Collect Food",
     day: "Feb 5th at 2:30pm",
-    remainder: false
+    reminder: false
   },
   {
     id: "2",
     text: "Collect Items",
     day: "Feb 6th at 3:30pm",
-    remainder: true
+    reminder: true
   },
   {
     id: "3",
     text: "Collect Tickers",
     day: "Feb 7th at 4:30pm",
-    remainder: true
+    reminder: true
   }])
 
   const deleteTask = (id) => {
@@ -28,12 +28,21 @@ function App() {
     setTaskList(taskList.filter((task)=> task.id != id));
   };
 
+  const togglereminder = (id) => {
+    console.log(id);
+    setTaskList(
+      taskList.map((task) => 
+        task.id === id ? {...task, reminder: !task.reminder} : task
+      )
+    );
+  }
+
   return (
     <div className="container">
       <Header />
       {
         taskList.length > 0 ?
-        <Tasks taskList={taskList} onDelete={deleteTask}/>
+        <Tasks taskList={taskList} onDelete={deleteTask} onToggle={togglereminder}/>
         : "No Task left"
       }
     </div>
